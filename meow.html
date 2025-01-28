@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciao CIRO!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(45deg, #72d0e1, #ebf0ee, #c2cbfb);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      color: #181616;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+      text-align: center;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hidden { display: none; }
+    .visible { display: block; animation: fadeIn 1.5s ease-out; }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    h1, h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+    p { font-size: 1.2rem; margin-bottom: 1rem; }
+
+    button {
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      background: #983218;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    button:hover { background: #f6944a; transform: scale(1.1); }
+
+    .image-container img {
+      width: 300px;
+      border-radius: 20px;
+      animation: rotateMove 6s ease-in-out forwards;
+    }
+
+    @keyframes rotateMove {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-funday.mp3" type="audio/mp3">
+  </audio>
+
+  <div id="part1" class="container visible">
+    <h1>🎉 Buon Compleanno! 🎉</h1>
+    <p>Rispondi alla domanda per andare avanti:</p>
+    <button onclick="checkAnswer(1)">Perché il pakistano ha paura che Ny non usa i social network</button>
+    <button onclick="checkAnswer(2)">Perché il pakistano ha paura che Ny si innamori di un altro</button>
+    <button onclick="checkAnswer(3)">Perché il telefono del pakistano non ha il Wifi</button>
+  </div>
+
+  <div id="part2" class="container hidden">
+    <h2>✨ BUON COMPLEANNO CIRO ✨</h2>
+    <button onclick="showWish('🎂 HAPPINESS ALONG THE WAY ')">🎁  1</button>
+    <button onclick="showWish('🌟 KEEP YOUR SPIRITS UP ')">🎁 2</button>
+    <button onclick="showWish('💖 ENJOY EVERY SINGLE MOMENT...')">🎁  3</button>
+    <p id="wishMessage"></p>
+  </div>
+
+  <div id="part3" class="container hidden">
+    <h2>🎈 CIRO MLEM MLEM 🎈</h2>
+    <div class="image-container">
+      <img src="./z6271366093106_902fd870eb0270d677dba3b954a423e1.jpg" alt="Ciro mlem mlem">
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(answer) {
+      if (answer === 2) {
+        alert("Ciro SEI INTELLIGENTE! Risposta corretta!");
+        document.getElementById("part1").classList.add("hidden");
+        document.getElementById("part2").classList.remove("hidden");
+      } else {
+        alert("Oops! Ciro Riprova HAHAAAA.");
+      }
+    }
+
+    function showWish(wish) {
+      document.getElementById("wishMessage").textContent = wish;
+      setTimeout(() => {
+        document.getElementById("part2").classList.add("hidden");
+        document.getElementById("part3").classList.remove("hidden");
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
